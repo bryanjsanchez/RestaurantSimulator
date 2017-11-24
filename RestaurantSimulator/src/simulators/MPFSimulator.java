@@ -1,27 +1,21 @@
-package com.bryanjsanchez.simulators;
+package simulators;
 
 import java.util.ArrayList;
 
-import com.bryanjsanchez.restaurant.Customer;
+import restaurant.Customer;
 
 /** Turn-based simulation of Max's approach to serve customers based on who will bring the highest profit. This approach is referred to as Max-Profit-First (MPF). 
  * @author Bryan J Sanchez
  */
 
-public class MPFSimulator implements Simulator {
+public class MPFSimulator  {
 	
 	private int currentTurn = 1;
-	private int profit = 0;
+	private double profit = 0;
 	private int customersServed = 0;
-
-	@Override
-	public void run(ArrayList<Customer> customers) {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public void reset() {
-		// TODO Auto-generated method stub
+	
+	public MPFSimulator() {
+		// TODO
 	}
 	
 	/** Proceeds to the next turn in the simulation.
@@ -30,7 +24,7 @@ public class MPFSimulator implements Simulator {
 		this.currentTurn++;
 	}
 	
-	/**Returns a summary String with the simulator's results after run() method has been invoked.
+	/**Returns a summary String with the simulator's results.
 	 * @throws IllegalStateException Simulator must be run before invoking this method. 
 	 */
 	@Override
