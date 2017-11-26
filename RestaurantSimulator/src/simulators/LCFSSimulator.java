@@ -1,26 +1,25 @@
 package simulators;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+import queues.implementations.LCFSQueue;
 import restaurant.Customer;
 
 /** Turn-based simulation of Mat's approach to serve customers based on who arrived last. This approach is referred to as Last-Come-First-Served (LCFS).
  * @author Bryan J Sanchez
  */
 
-public class LCFSSimulator {
-	
+public class LCFSSimulator extends AbstractSimulator {
 
 	public LCFSSimulator(ArrayList<Customer> customerInput) {
-		// TODO
+		super(customerInput, new LCFSQueue(customerInput));
 	}
 	
-	/**Returns a summary String with the simulator's results.
-	 * @throws IllegalStateException Simulator must be run before invoking this method. 
-	 */
 	@Override
-	public String toString() throws IllegalStateException {
-		// TODO Auto-generated method stub
-		return "";
+	public String toString() {
+		DecimalFormat df = new DecimalFormat("#0.00");
+		return "Mat’s approach profit: "+ df.format(profit) 
+		+ "\nMat’s approach number of disappointed customers: " + disappointedCustomers + "\n";
 	}
 }

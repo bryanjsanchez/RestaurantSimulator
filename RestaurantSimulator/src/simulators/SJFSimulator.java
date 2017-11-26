@@ -1,33 +1,25 @@
 package simulators;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+import queues.implementations.SJFQueue;
 import restaurant.Customer;
 
-/** Turn-based simulation of Pac's approach to serve customers based on who can be served in the shortest time. This approach is referred to as Shortest-Job-First (SJF). */
+/** Turn-based simulation of Pac's approach to serve customers based on who can be served in the shortest time. This approach is referred to as Shortest-Job-First (SJF). 
+ * @author Bryan J Sanchez
+ * */
 
-public class SJFSimulator {
+public class SJFSimulator extends AbstractSimulator {
 	
-	private int currentTurn = 1;
-	private double profit = 0;
-	private int customersServed = 0;
-
-	public SJFSimulator() {
-		// TODO
+	public SJFSimulator(ArrayList<Customer> customerInput) {
+		super(customerInput, new SJFQueue(customerInput));
 	}
 	
-	/** Proceeds to the next turn in the simulation.
-	 */
-	private void nextTurn() {
-		this.currentTurn++;
-	}
-	
-	/**Returns a summary String with the simulator's results.
-	 * @throws IllegalStateException Simulator must be run before invoking this method. 
-	 */
 	@Override
-	public String toString() throws IllegalStateException {
-		// TODO Auto-generated method stub
-		return "";
+	public String toString() {
+		DecimalFormat df = new DecimalFormat("#0.00");
+		return "Pac’s approach profit: "+ df.format(profit) 
+		+ "\nPac’s approach number of disappointed customers: " + disappointedCustomers + "\n";
 	}
 }

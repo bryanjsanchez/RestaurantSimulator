@@ -1,35 +1,25 @@
 package simulators;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+import queues.implementations.MPFQueue;
 import restaurant.Customer;
 
 /** Turn-based simulation of Max's approach to serve customers based on who will bring the highest profit. This approach is referred to as Max-Profit-First (MPF). 
  * @author Bryan J Sanchez
  */
 
-public class MPFSimulator  {
+public class MPFSimulator extends AbstractSimulator {
 	
-	private int currentTurn = 1;
-	private double profit = 0;
-	private int customersServed = 0;
-	
-	public MPFSimulator() {
-		// TODO
+	public MPFSimulator(ArrayList<Customer> customerInput) {
+		super(customerInput, new MPFQueue(customerInput));
 	}
 	
-	/** Proceeds to the next turn in the simulation.
-	 */
-	private void nextTurn() {
-		this.currentTurn++;
-	}
-	
-	/**Returns a summary String with the simulator's results.
-	 * @throws IllegalStateException Simulator must be run before invoking this method. 
-	 */
 	@Override
-	public String toString() throws IllegalStateException {
-		// TODO Auto-generated method stub
-		return "";
+	public String toString() {
+		DecimalFormat df = new DecimalFormat("#0.00");
+		return "Max’s approach profit: "+ df.format(profit) 
+		+ "\nMax’s approach number of disappointed customers: " + disappointedCustomers + "\n";
 	}
 }

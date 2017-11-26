@@ -1,7 +1,9 @@
-package queues;
+package queues.implementations;
 
 import java.util.ArrayList;
 
+import queues.AbstractQueue;
+import queues.Node;
 import restaurant.Customer;
 
 /** Ordered list of customers representing Pat's first-in-first-out approach to serve customers at the restaurant. 
