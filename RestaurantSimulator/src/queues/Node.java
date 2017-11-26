@@ -15,16 +15,12 @@ public class Node {
 		this(customer, null);
 	}
 	
-	public Node() {
-		this(null, null);
-	}
-	
 	public Customer getCustomer() {
 		return customer;
 	}
 	
 	public Node getNext() {
-		return this.next;
+		return next;
 	}
 	
 	public void setNext(Node next) {
@@ -32,7 +28,7 @@ public class Node {
 	}
 	
 	public void clean() { 
-		this.customer = null; 
-		this.next = null; 
+		customer = null; 
+		next = null; 
 	}
 }

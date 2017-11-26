@@ -1,23 +1,18 @@
 package simulators;
 
+import java.util.ArrayList;
+
+import restaurant.Customer;
+
 /** Turn-based simulation of Mat's approach to serve customers based on who arrived last. This approach is referred to as Last-Come-First-Served (LCFS).
  * @author Bryan J Sanchez
  */
 
 public class LCFSSimulator {
 	
-	private int currentTurn = 1;
-	private double profit = 0;
-	private int customersServed = 0;
 
-	public LCFSSimulator() {
+	public LCFSSimulator(ArrayList<Customer> customerInput) {
 		// TODO
-	}
-	
-	/** Proceeds to the next turn in the simulation.
-	 */
-	private void nextTurn() {
-		this.currentTurn++;
 	}
 	
 	/**Returns a summary String with the simulator's results.

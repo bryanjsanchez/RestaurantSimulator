@@ -39,21 +39,21 @@ public class Customer {
 	}
 	
 	public void decrementOrderPrepTime() {
-		this.orderPrepTime--;
+		orderPrepTime--;
 	}
 
 	/** @return Returns profit that could be obtained from this customer. */
 	public double getCost() {
-		return this.PROFIT;
+		return PROFIT;
 	}
 
 	/** @return Returns the number of turns this customer is willing to wait for his order. */
 	public int getPatienceTime() {
-		return this.patienceTime;
+		return patienceTime;
 	}
 	
 	public void decrementPatienceTime() {
-		this.patienceTime--;
+		patienceTime--;
 	}
 	
 	/** @return Returns order status: true if order is taken, false if order is pending. */
@@ -68,7 +68,7 @@ public class Customer {
 	
 	/** Resets customer variables before adding to a new queue. */
 	public void reset() {
-		this.orderPrepTime = this.ORDERPREPTIME;
-		this.patienceTime = this.PATIENCETIME;
+		orderPrepTime = ORDERPREPTIME;
+		patienceTime = PATIENCETIME;
 	}
 }

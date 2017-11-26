@@ -2,13 +2,13 @@ package queues;
 
 import restaurant.Customer;
 
-/** Represents a queue of customers at Pat and Mat's restaurant. Customers are arranged in the order in which they will be served.
+/** Represents a queue of customers at Pat and Mat's restaurant. Enqueued customers will be arranged in the order in which they will be served.
  * @author Bryan J Sanchez
  */
 
-public interface Queue {
+public interface Queue extends Iterable<Node> {
 	
-	/**	Adds customers that arrive at a given turn to the queue.
+	/**	Adds customers that arrive at a given turn to the queue and removes them from pending customerInput list.
 	 * @param turn Current simulator turn.
 	 */
 	public void enqueueAll(int turn);
@@ -28,7 +28,7 @@ public interface Queue {
 	public int size();
 	
 	/**
-	 * @return Returns first node in queue.
+	 * @return Returns node containing the customer at the front of the queue which is to be served next.
 	 */
 	public Node getFirst();
 	
