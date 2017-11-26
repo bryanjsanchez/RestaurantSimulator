@@ -74,8 +74,8 @@ public abstract class AbstractQueue implements Queue {
 	}
 
 	@Override
-	public Node getFirst() {
-		return first;
+	public Customer getFirst() {
+		return first.getCustomer();
 	}
 
 	@Override

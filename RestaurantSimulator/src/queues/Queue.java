@@ -28,9 +28,9 @@ public interface Queue extends Iterable<Node> {
 	public int size();
 	
 	/**
-	 * @return Returns node containing the customer at the front of the queue which is to be served next.
+	 * @return Returns customer at the front of the queue which is to be served next.
 	 */
-	public Node getFirst();
+	public Customer getFirst();
 	
 	/**
 	 * @return True if queue is empty.

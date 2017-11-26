@@ -40,11 +40,11 @@ public abstract class AbstractSimulator {
 			// 3) If the queue is not empty, an order should have been taken in a previous turn. 
 			if (!queue.isEmpty()) {
 				// 4) Decrement remaining order time for the customer in the front of the queue.
-				queue.getFirst().getCustomer().decrementOrderPrepTime();	
+				queue.getFirst().decrementOrderPrepTime();	
 				// 5) If order is complete, update result variables and serve customer.
-				if (queue.getFirst().getCustomer().getOrderPrepTime() <= 0) {
+				if (queue.getFirst().getOrderPrepTime() <= 0) {
 					disappointedCustomers--;
-					profit += queue.getFirst().getCustomer().getCost();
+					profit += queue.getFirst().getCost();
 					queue.customerServed();
 				} 
 			}
@@ -52,7 +52,7 @@ public abstract class AbstractSimulator {
 			queue.enqueueAll(currentTurn);
 			// 7) Ensure first customer's order is taken.
 			if (!queue.isEmpty()) {
-				queue.getFirst().getCustomer().setOrderTaken(true);	
+				queue.getFirst().setOrderTaken(true);	
 			}
 		}
 	}
