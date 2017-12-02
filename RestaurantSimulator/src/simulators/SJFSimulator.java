@@ -3,7 +3,7 @@ package simulators;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-import queues.implementations.SJFQueue;
+import queues.SJFQueue;
 import restaurant.Customer;
 
 /** Turn-based simulation of Pac's approach to serve customers based on who can be served in the shortest time. This approach is referred to as Shortest-Job-First (SJF). 

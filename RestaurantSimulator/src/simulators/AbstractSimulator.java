@@ -44,7 +44,7 @@ public abstract class AbstractSimulator {
 				// 5) If order is complete, update result variables and serve customer.
 				if (queue.getFirst().getOrderPrepTime() <= 0) {
 					disappointedCustomers--;
-					profit += queue.getFirst().getCost();
+					profit += queue.getFirst().getProfit();
 					queue.customerServed();
 				} 
 			}

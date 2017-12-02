@@ -22,15 +22,13 @@ public abstract class AbstractQueue implements Queue {
 
 	@Override
 	public void enqueueAll(int turn) {
-		ArrayList<Customer> customersEnqueued = new ArrayList<>();
-		for (Customer customer : customerInput) {
-			if (customer.getArrivalTime() == turn) {
-				enqueue(customer);
-				customersEnqueued.add(customer);
+		Iterator<Customer> customerIterator = customerInput.iterator();
+		while (customerIterator.hasNext()) {
+			Customer newCustomer = customerIterator.next();
+			if (newCustomer.getArrivalTime() == turn) {
+				enqueue(newCustomer);
+				customerIterator.remove();
 			}
-		}
-		for (Customer customer : customersEnqueued) {
-			customerInput.remove(customer);
 		}
 	}
 	
@@ -40,13 +38,13 @@ public abstract class AbstractQueue implements Queue {
 	public void customerLeaves(Customer customer) {
 		if (size == 1) {
 			first = last = null;
-		} else if (first.getCustomer() == customer) {
+		} else if (first.getCustomer().equals(customer)) {
 			Node nodeToRemove = first;
 			first = first.getNext();
 			nodeToRemove.clean();
 		} else {
 			for (Node node : this) {
-				if (node.getNext().getCustomer() == customer) {
+				if (node.getNext().getCustomer().equals(customer)) {
 					Node nodeToRemove = node.getNext();
 					node.setNext(nodeToRemove.getNext());
 					if (nodeToRemove == last) {
@@ -88,4 +86,23 @@ public abstract class AbstractQueue implements Queue {
 		return new QueueIterator(first);
 	}
 
+	private class QueueIterator implements Iterator<Node> {
+		
+		private Node next;
+		
+		public QueueIterator(Node first) {
+			this.next = first;
+		}
+		@Override
+		public boolean hasNext() {
+			return (next != null);
+		}
+
+		@Override
+		public Node next() {
+			Node current = next;
+			next = current.getNext();
+			return current;
+		}
+	}
 }

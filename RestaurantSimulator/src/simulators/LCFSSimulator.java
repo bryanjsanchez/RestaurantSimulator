@@ -3,7 +3,7 @@ package simulators;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-import queues.implementations.LCFSQueue;
+import queues.LCFSQueue;
 import restaurant.Customer;
 
 /** Turn-based simulation of Mat's approach to serve customers based on who arrived last. This approach is referred to as Last-Come-First-Served (LCFS).

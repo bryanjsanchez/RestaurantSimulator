@@ -1,9 +1,7 @@
-package queues.implementations;
+package queues;
 
 import java.util.ArrayList;
 
-import queues.AbstractQueue;
-import queues.Node;
 import restaurant.Customer;
 
 /** Ordered list of customers representing Mat's last-come-first-serve approach to serve customers at the restaurant. 
@@ -11,26 +9,26 @@ import restaurant.Customer;
  * */
 
 public class LCFSQueue extends AbstractQueue {
-	ArrayList<Customer> customerInput;
-	Node first;
-	int size = 0;
-
+	
 	public LCFSQueue(ArrayList<Customer> customerInput) {
 		super(customerInput);
 	}
 
 	@Override
-	protected void enqueue(Customer customer) {
-		customer.reset();
-		if (customer.getPatienceTime() <= 0) {
+	protected void enqueue(Customer newCustomer) {
+		newCustomer.reset();
+		if (newCustomer.getPatienceTime() <= 0) {
 			return;
 		}
-		Node newNode = new Node(customer);
+		Node newNode = new Node(newCustomer);
 		if (isEmpty()) {
 			first = newNode;
-		} else {
+		} else if (!first.getCustomer().isOrderTaken()) {
 			newNode.setNext(first);
 			first = newNode;
+		} else {
+			newNode.setNext(first.getNext());
+			first.setNext(newNode);
 		}
 		size++;
 	}

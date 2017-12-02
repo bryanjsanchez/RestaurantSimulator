@@ -3,7 +3,7 @@ package simulators;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-import queues.implementations.MPFQueue;
+import queues.MPFQueue;
 import restaurant.Customer;
 
 /** Turn-based simulation of Max's approach to serve customers based on who will bring the highest profit. This approach is referred to as Max-Profit-First (MPF). 

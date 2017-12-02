@@ -43,7 +43,7 @@ public class Customer {
 	}
 
 	/** @return Returns profit that could be obtained from this customer. */
-	public double getCost() {
+	public double getProfit() {
 		return PROFIT;
 	}
 
@@ -70,5 +70,9 @@ public class Customer {
 	public void reset() {
 		orderPrepTime = ORDERPREPTIME;
 		patienceTime = PATIENCETIME;
+	}
+	
+	public boolean equals(Customer customer) {
+		return (this.getId() == customer.getId());
 	}
 }

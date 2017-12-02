@@ -3,7 +3,7 @@ package simulators;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-import queues.implementations.FCFSQueue;
+import queues.FCFSQueue;
 import restaurant.Customer;
 
 /** Turn-based simulation of Pat's approach to serve customers based on their arrival time, (i.e., selecting the customer who arrives earliest). This approach is referred to as First-Come-First-Served (FCFS).

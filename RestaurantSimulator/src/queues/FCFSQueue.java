@@ -1,9 +1,7 @@
-package queues.implementations;
+package queues;
 
 import java.util.ArrayList;
 
-import queues.AbstractQueue;
-import queues.Node;
 import restaurant.Customer;
 
 /** Ordered list of customers representing Pat's first-in-first-out approach to serve customers at the restaurant. 
@@ -17,12 +15,12 @@ public class FCFSQueue extends AbstractQueue {
 	}
 
 	@Override
-	protected void enqueue(Customer customer) {
-		customer.reset();
-		if (customer.getPatienceTime() <= 0) {
+	protected void enqueue(Customer newCustomer) {
+		newCustomer.reset();
+		if (newCustomer.getPatienceTime() <= 0) {
 			return;
 		}
-		Node newNode = new Node(customer);
+		Node newNode = new Node(newCustomer);
 		if (isEmpty()) {
 			first = last = newNode;
 		} else {
