@@ -83,15 +83,16 @@ public abstract class AbstractQueue implements Queue {
 	
 	@Override
 	public Iterator<Node> iterator() {
-		return new QueueIterator(first);
+		return new QueueIterator();
 	}
 
 	private class QueueIterator implements Iterator<Node> {
 		
 		private Node next;
+		private Node current;
 		
-		public QueueIterator(Node first) {
-			this.next = first;
+		public QueueIterator() {
+			next = first;
 		}
 		@Override
 		public boolean hasNext() {
@@ -100,7 +101,7 @@ public abstract class AbstractQueue implements Queue {
 
 		@Override
 		public Node next() {
-			Node current = next;
+			this.current = next;
 			next = current.getNext();
 			return current;
 		}

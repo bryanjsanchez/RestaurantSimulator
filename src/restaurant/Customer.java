@@ -68,6 +68,7 @@ public class Customer {
 	
 	/** Resets customer variables before adding to a new queue. */
 	public void reset() {
+		isOrderTaken = false;
 		orderPrepTime = ORDERPREPTIME;
 		patienceTime = PATIENCETIME;
 	}

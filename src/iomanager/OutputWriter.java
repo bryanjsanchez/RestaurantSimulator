@@ -2,7 +2,6 @@ package iomanager;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 
 /** Class to write output files.
  * @author Bryan J Sanchez
