@@ -3,6 +3,8 @@ package restaurant;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import iomanager.InputReader;
 import iomanager.OutputWriter;
 import simulators.BCSimulator;
@@ -24,6 +26,7 @@ public class Restaurant {
 		for (int i = 0; i < inputList.size(); i++) {
 			runSimulators(reader.getDirectory() + inputList.get(i), customersLists.get(i));
 		}
+		JOptionPane.showMessageDialog(null, "Simulators Successful!");
 	}
 
 	/** Runs all simulations and generates an *.out file with results for each *.csv input file.
@@ -34,13 +37,13 @@ public class Restaurant {
 	private static void runSimulators(String filepath, ArrayList<Customer> customersList) {
 		BCSimulator BCSimulator = new BCSimulator(new ArrayList<Customer>(customersList));
 		String BCResult = BCSimulator.toString();
-		
+
 		FCFSSimulator FCFSSimulator = new FCFSSimulator(new ArrayList<Customer>(customersList));
 		String FCFSResult = FCFSSimulator.toString();
-		
+
 		LCFSSimulator LCFSSimulator = new LCFSSimulator(new ArrayList<Customer>(customersList));
 		String LCFSResult = LCFSSimulator.toString();
-		
+
 		MPFSimulator MPFSimulator = new MPFSimulator(new ArrayList<Customer>(customersList));
 		String MPFResult = MPFSimulator.toString();
 
