@@ -1,6 +1,9 @@
 package simulators;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+
+import restaurant.Customer;
 
 /** Returns the best case (BC) results for each input (maximum profit and customers served).
  * @author Bryan J Sanchez
@@ -11,8 +14,11 @@ public class BCSimulator {
 	private double profit = 0;
 	private int customersServed = 0;
 	
-	public BCSimulator() {
-		// TODO
+	public BCSimulator(ArrayList<Customer> customersList) {
+		for (Customer customer : customersList) {
+			profit += customer.getProfit();
+			customersServed = customersList.size();
+		}
 	}
 
 	/**

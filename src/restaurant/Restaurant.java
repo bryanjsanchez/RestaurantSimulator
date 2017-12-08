@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import iomanager.InputReader;
 import iomanager.OutputWriter;
+import simulators.BCSimulator;
 import simulators.FCFSSimulator;
 import simulators.LCFSSimulator;
 import simulators.MPFSimulator;
@@ -31,6 +32,9 @@ public class Restaurant {
 	 * @throws FileNotFoundException 
 	 */
 	private static void runSimulators(String filepath, ArrayList<Customer> customersList) {
+		BCSimulator BCSimulator = new BCSimulator(new ArrayList<Customer>(customersList));
+		String BCResult = BCSimulator.toString();
+		
 		FCFSSimulator FCFSSimulator = new FCFSSimulator(new ArrayList<Customer>(customersList));
 		String FCFSResult = FCFSSimulator.toString();
 		
@@ -43,7 +47,7 @@ public class Restaurant {
 		SJFSimulator SJFSimulator = new SJFSimulator(new ArrayList<Customer>(customersList));
 		String SJFResult = SJFSimulator.toString();
 
-		String results = FCFSResult + LCFSResult + MPFResult + SJFResult;
+		String results = BCResult + FCFSResult + LCFSResult + MPFResult + SJFResult;
 		OutputWriter.saveFile(filepath.replace(".csv", ".out"), results);
 	}
 }
