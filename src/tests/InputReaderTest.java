@@ -2,6 +2,7 @@ package tests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
@@ -18,9 +19,18 @@ class InputReaderTest {
 		
 		InputReader reader = new InputReader();
 		ArrayList<String> inputFilenames = new ArrayList<>();
-		inputFilenames.add(filename);
-		ArrayList<Customer> actualCustomers = reader.getCustomersLists(inputFilenames).get(0);
+		ArrayList<Customer> actualCustomers = null;
 		
+		inputFilenames.add(filename);
+		try {
+			actualCustomers = reader.getCustomersLists(inputFilenames).get(0);
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		ArrayList<Customer> expectedCustomers = new ArrayList<>();
 		expectedCustomers.add(new Customer(1, "451263", 10, 2.30, 15));
 		expectedCustomers.add(new Customer(2, "540909", 2, 5.00, 10));

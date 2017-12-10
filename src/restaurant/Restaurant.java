@@ -1,6 +1,7 @@
 package restaurant;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -20,13 +21,18 @@ import simulators.SJFSimulator;
 public class Restaurant {
 
 	public static void main(String[] args) {
-		InputReader reader = new InputReader();
-		ArrayList<String> inputList = reader.getInputList();
-		ArrayList<ArrayList<Customer>> customersLists = reader.getCustomersLists(inputList);
-		for (int i = 0; i < inputList.size(); i++) {
-			runSimulators(reader.getDirectory() + inputList.get(i), customersLists.get(i));
-		}
-		JOptionPane.showMessageDialog(null, "Simulators Successful!");
+			InputReader reader = new InputReader();
+			ArrayList<String> inputList = null;
+			try {
+				inputList = reader.getInputList();
+				ArrayList<ArrayList<Customer>> customersLists = reader.getCustomersLists(inputList);
+				for (int i = 0; i < inputList.size(); i++) {
+					runSimulators(reader.getDirectory() + "/output/" + inputList.get(i), customersLists.get(i));
+				}
+				JOptionPane.showMessageDialog(null, "Simulators Successful!");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 	}
 
 	/** Runs all simulations and generates an *.out file with results for each *.csv input file.
