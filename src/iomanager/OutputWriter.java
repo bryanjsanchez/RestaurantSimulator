@@ -9,8 +9,7 @@ import java.io.PrintWriter;
 
 public class OutputWriter {
 	
-	/** Static method which writes a results string to an output *.out file with the same name
-	 * as the input *.csv file.
+	/** Static method which writes a results string to an OUT file with the same name as the input CSV file.
 	 * @param filepath Path of the file where data is to be written.
 	 * @param results String containing results from the simulators.
 	 */

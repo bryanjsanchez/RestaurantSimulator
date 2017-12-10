@@ -26,18 +26,19 @@ public class Restaurant {
 			try {
 				inputList = reader.getInputList();
 				ArrayList<ArrayList<Customer>> customersLists = reader.getCustomersLists(inputList);
+				
 				for (int i = 0; i < inputList.size(); i++) {
-					runSimulators(reader.getDirectory() + "/output/" + inputList.get(i), customersLists.get(i));
+					runSimulators(reader.getDirectory() + "output/" + inputList.get(i), customersLists.get(i));
 				}
-				JOptionPane.showMessageDialog(null, "Simulators Successful!");
+				JOptionPane.showMessageDialog(null, "Simulators Successful!\n\nSee results in 'output' directory.");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 	}
 
-	/** Runs all simulations and generates an *.out file with results for each *.csv input file.
-	 * @param filepath File with .txt extension which contains list of input .csv files to be run through each simulation.
-	 * @throws IllegalArgumentException File extension is not .txt.
+	/** Runs all simulations and generates an *.out file with results for each CSV input file.
+	 * @param filepath input.txt file which contains list of input CSV files to be run through each simulation.
+	 * @throws IllegalArgumentException File extension is not TXT.
 	 * @throws FileNotFoundException 
 	 */
 	private static void runSimulators(String filepath, ArrayList<Customer> customersList) {
