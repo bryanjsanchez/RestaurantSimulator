@@ -15,7 +15,7 @@ class InputReaderTest {
 	@Test
 	void testGetCustomersLists() {
 		
-		String filename = "input1.csv";
+		String filename = "input6.csv";
 		
 		InputReader reader = new InputReader();
 		ArrayList<String> inputFilenames = new ArrayList<>();
